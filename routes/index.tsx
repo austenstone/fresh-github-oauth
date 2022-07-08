@@ -16,7 +16,7 @@ export async function handler(
         return ctx.render(userData);
       }
     } catch {
-      return Response.redirect(`${new URL(req.url).origin}/login`);
+      return Response.redirect(`${new URL(req.url).origin}/logout`);
     }
   }
 
