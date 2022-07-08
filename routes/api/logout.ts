@@ -7,6 +7,8 @@ export function handler(req: Request): Response {
       "location": new URL(req.url).origin,
     },
   });
-  deleteCookie(response.headers, "gh_access_token");
+  deleteCookie(response.headers, "gh_access_token", {
+    path: "/"
+  });
   return response;
 }
