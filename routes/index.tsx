@@ -10,9 +10,13 @@ export async function handler(
 ): Promise<Response> {
   const maybeAccessToken = getCookies(req.headers)["gh_access_token"];
   if (maybeAccessToken) {
-    const userData = await gitHubApi.getUserData(maybeAccessToken);
-    if (userData) {
-      return ctx.render(userData);
+    try {
+      const userData = await gitHubApi.getUserData(maybeAccessToken);
+      if (userData) {
+        return ctx.render(userData);
+      }
+    } catch {
+      return Response.redirect(`${new URL(req.url).origin}/login`);
     }
   }
 
