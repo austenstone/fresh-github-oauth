@@ -1,5 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
 import { gitHubApi } from "../github.ts";
 import { HandlerContext, PageProps } from "$fresh/server.ts";
 import { getCookies, setCookie } from "$std/http/cookie.ts";
